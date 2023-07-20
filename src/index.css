@@ -19,6 +19,7 @@ code {
 }
 
 .App {
+  position: relative;
   width: 100vw;
   min-height: 100vh;
   padding: 3rem 5rem;

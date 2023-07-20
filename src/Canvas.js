@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as d3 from "d3";
+import "./canvas.css";
 
 const Canvas = () => {
   const [us, setUs] = useState({});
@@ -21,8 +22,12 @@ const Canvas = () => {
 
   useEffect(() => {
     if (us !== {} && educationalData.length) {
-      console.log(us);
-      console.log(educationalData);
+      const svg = d3
+        .select("#canvas-container")
+        .append("svg")
+        .attr("id", "svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
     }
   }, [us, educationalData]);
 
