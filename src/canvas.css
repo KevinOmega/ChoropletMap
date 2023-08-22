@@ -9,6 +9,10 @@
   border: 2px solid black;
 }
 
+.ticks {
+  font-size: 9.5px;
+}
+
 .states {
   fill: none;
   stroke: #000;

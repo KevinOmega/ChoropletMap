@@ -34,7 +34,7 @@ const Canvas = () => {
 
       const path = d3.geoPath();
 
-      const x = d3.scaleLinear().domain([minValue, maxValue]).range([600, 806]);
+      const x = d3.scaleLinear().domain([minValue, maxValue]).range([600, 860]);
 
       const svg = d3
         .select("#canvas-container")
@@ -46,6 +46,7 @@ const Canvas = () => {
       const g = svg
         .append("g")
         .attr("id", "legend")
+        .attr("class", "ticks")
         .attr("transform", "translate(0, 30)");
 
       g.selectAll("rect")
@@ -67,6 +68,16 @@ const Canvas = () => {
         .attr("x", (d) => x(d[0]))
         .attr("width", (d) => (d[0] && d[1] ? x(d[1]) - x([d[0]]) : x(null)))
         .attr("height", 8);
+
+      g.call(
+        d3
+          .axisBottom(x)
+          .tickSize(10)
+          .tickFormat((x) => Math.round(x) + "%")
+          .tickValues(color.domain())
+      )
+        .select(".domain")
+        .remove();
     }
   }, [us, educationalData]);
 
