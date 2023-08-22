@@ -1,12 +1,18 @@
 #canvas-container {
   margin-top: 3rem;
   position: relative;
-  width: 100%;
+  width: 70%;
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid black;
+}
+
+#svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ticks {
@@ -17,4 +23,12 @@
   fill: none;
   stroke: #000;
   /* stroke-linejoin: round; */
+}
+
+#tooltip {
+  position: absolute;
+  background-color: #efefef;
+  font-size: 12px;
+  padding: 5px 8px ;
+  font-weight: 100;
 }
