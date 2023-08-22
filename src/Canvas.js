@@ -84,6 +84,19 @@ const Canvas = () => {
         .datum(topojson.mesh(us, us.objects.states))
         .attr("class", "states")
         .attr("d", path);
+
+      svg
+        .selectAll("path")
+        .data(topojson.feature(us, us.objects.counties).features)
+        .enter()
+        .append("path")
+        .attr("fill", (d) => {
+          return color(
+            educationalData.filter((data) => data.fips === d.id)[0]
+              .bachelorsOrHigher
+          );
+        })
+        .attr("d", path);
     }
   }, [us, educationalData]);
 
