@@ -78,6 +78,12 @@ const Canvas = () => {
       )
         .select(".domain")
         .remove();
+
+      svg
+        .append("path")
+        .datum(topojson.mesh(us, us.objects.states))
+        .attr("class", "states")
+        .attr("d", path);
     }
   }, [us, educationalData]);
 
